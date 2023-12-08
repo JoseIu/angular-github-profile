@@ -1,19 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from 'src/app/interfaces/user.interface';
-import { UserProfileService } from 'src/app/services/user-profile.service';
+import { Repos } from 'src/app/interfaces/userRepos.interface';
 
 @Component({
   selector: 'user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
 })
-export class UserProfileComponent implements OnInit {
-  public userData?: User;
-  constructor(private userService: UserProfileService) {}
-  ngOnInit(): void {
-    this.userService.getDataUser().subscribe((user) => {
-      this.userData = user;
-      console.log(user);
-    });
-  }
+export class UserProfileComponent {
+  @Input() public userData?: User;
+  @Input() public repos: Repos[] = [];
 }
