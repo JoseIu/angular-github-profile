@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@use "scss/reset";
+
+.wrapper {
+  max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+}
