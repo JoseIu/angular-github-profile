@@ -11,17 +11,35 @@ import { UserProfileService } from './services/user-profile.service';
 export class AppComponent implements OnInit {
   public userData?: User;
   public repos: Repos[] = [];
+  public isLoading: boolean = true;
 
   constructor(private userService: UserProfileService) {}
   ngOnInit(): void {
     this.userService.getDataUser().subscribe((user) => {
       this.userData = user;
-      this.userService.getRepos(user.repos_url).subscribe((repos) => {
-        this.repos = repos;
-        console.log('REPOS', this.repos);
-      });
+
+      this.getRepos(user.repos_url);
+      this.isLoading = false;
 
       console.log('USERDATA', this.userData);
+    });
+  }
+
+  public searchUser(term: string): void {
+    console.log(term);
+    this.userService.getDataUser(term).subscribe((user) => {
+      this.userData = user;
+      this.getRepos(user.repos_url);
+      this.isLoading = false;
+      console.log(user);
+    });
+  }
+
+  public getRepos(url: string): void {
+    this.userService.getRepos(url).subscribe((repos) => {
+      this.repos = repos;
+
+      console.log('REPOS', this.repos);
     });
   }
 }
