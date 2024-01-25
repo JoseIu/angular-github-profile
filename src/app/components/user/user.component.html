@@ -25,7 +25,7 @@
     <div class="repos">
       <repo-card *ngFor="let repo of repos | slice : 0 : 4" [repo]="repo" />
     </div>
-    <button class="user__btn" [routerLink]="['/all-repos', userData?.name]">
+    <button class="user__btn" [routerLink]="['/all-repos', userData?.login]">
       View all repositories
     </button>
   </div>
