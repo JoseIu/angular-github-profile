@@ -1,0 +1,11 @@
+<section class="repositories wrapper">
+  <h2 class="repositories__title">List of repositories {{ userName }}</h2>
+
+  <div class="repositories__list">
+    <repo-card
+      class="animation"
+      *ngFor="let repo of repos"
+      [repo]="repo"
+    ></repo-card>
+  </div>
+</section>
