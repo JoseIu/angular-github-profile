@@ -16,8 +16,7 @@ export class UserProfileService {
     return this.http.get<User>(`${this.baseUrl}/${username}`);
   }
 
-  public getRepos(url: string): Observable<Repos[]> {
-    const reposUrl = url;
-    return this.http.get<Repos[]>(reposUrl);
+  public getRepos(name: string): Observable<Repos[]> {
+    return this.http.get<Repos[]>(`${this.baseUrl}/${name}/repos`);
   }
 }
