@@ -1,0 +1,32 @@
+<section class="user">
+  <header class="user__header">
+    <img class="user__img" [src]="userData?.avatar_url" alt="" />
+    <div class="user__stats">
+      <div class="user__stats-item">
+        <span class="user__stats-span user__stats-span--gray">Followers</span>
+        <span class="user__stats-span">{{ userData?.followers }} </span>
+      </div>
+      <div class="user__stats-item">
+        <span class="user__stats-span user__stats-span--gray">Following</span>
+        <span class="user__stats-span"> {{ userData?.following }} </span>
+      </div>
+      <div class="user__stats-item">
+        <span class="user__stats-span user__stats-span--gray">Location</span>
+        <span class="user__stats-span" class="user__stats-span"
+          >{{ userData?.location }}
+        </span>
+      </div>
+    </div>
+  </header>
+  <div class="user__content">
+    <h2 class="user__content-title">{{ userData?.name }}</h2>
+    <h3 class="user__content-subtitle">{{ userData?.bio }}</h3>
+
+    <div class="repos">
+      <repo-card *ngFor="let repo of repos | slice : 0 : 4" [repo]="repo" />
+    </div>
+    <button class="user__btn" [routerLink]="['/all-repos', userData?.name]">
+      View all repositories
+    </button>
+  </div>
+</section>
