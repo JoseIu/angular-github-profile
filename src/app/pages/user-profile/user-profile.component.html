@@ -23,27 +23,7 @@
     <h3 class="user__content-subtitle">{{ userData?.bio }}</h3>
 
     <div class="repos">
-      <article class="repo" *ngFor="let repo of repos | slice : 0 : 4">
-        <h3 class="repo__title">{{ repo.name }}</h3>
-        <span class="repo__subtitle">{{ repo.description }} </span>
-        <ul class="repo__infos">
-          <li class="repo__infos-info">
-            <img
-              class="repo__infos-img"
-              src="assets/images/Nesting.svg"
-              alt=""
-            />
-            <span>{{ repo.forks }} </span>
-          </li>
-          <li class="repo__infos-info">
-            <img class="repo__infos-img" src="assets/images/Star.svg" alt="" />
-            <span>{{ repo.stargazers_count }} </span>
-          </li>
-          <li class="repo__infos-info">
-            <span>updated {{ repo.updated_at | daysPassed }} days ago</span>
-          </li>
-        </ul>
-      </article>
+      <repo-card *ngFor="let repo of repos | slice : 0 : 4" [repo]="repo" />
     </div>
     <button class="user__btn">View all repositories</button>
   </div>
