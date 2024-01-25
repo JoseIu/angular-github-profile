@@ -1,9 +1,3 @@
 <main class="main wrapper">
-  <search-input (onDebouncer)="searchUser($event)"></search-input>
-
-  <app-loader *ngIf="isLoading; else notLoading" />
-
-  <ng-template #notLoading>
-    <user-profile [userData]="userData" [repos]="repos"></user-profile>
-  </ng-template>
+  <router-outlet></router-outlet>
 </main>
