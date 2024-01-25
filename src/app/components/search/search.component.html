@@ -3,10 +3,11 @@
     <img class="form__icon" src="assets/images/Search.svg" alt="" />
     <input
       type="text"
-      name=""
-      id=""
+      name="search"
+      id="search"
       placeholder="username..."
       class="form__search"
+      (keyup)="searchUser($event)"
     />
   </form>
 </header>
