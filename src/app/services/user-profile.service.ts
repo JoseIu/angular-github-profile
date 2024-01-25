@@ -8,15 +8,15 @@ import { Repos } from '../interfaces/userRepos.interface';
   providedIn: 'root',
 })
 export class UserProfileService {
-  private baseUrl = `https://api.github.com/users/github`;
+  private baseUrl = `https://api.github.com/users`;
 
   constructor(private http: HttpClient) {}
 
-  getDataUser(): Observable<User> {
-    return this.http.get<User>(this.baseUrl);
+  public getDataUser(username: string = 'github'): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}/${username}`);
   }
 
-  getRepos(url: string): Observable<Repos[]> {
+  public getRepos(url: string): Observable<Repos[]> {
     const reposUrl = url;
     return this.http.get<Repos[]>(reposUrl);
   }
