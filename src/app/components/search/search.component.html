@@ -9,5 +9,25 @@
       class="form__search"
       (keyup)="searchUser($event)"
     />
+
+    <article
+      *ngIf="usertFound && userData; else userNotFound"
+      class="results"
+      (click)="setUser()"
+    >
+      <img
+        class="results__img"
+        [src]="userData.avatar_url"
+        [alt]="userData.name"
+      />
+      <div class="results__content">
+        <h2 class="results__user">{{ userData.name }}</h2>
+        <span class="results__description">{{ userData.bio }} </span>
+      </div>
+    </article>
+
+    <ng-template #userNotFound>
+      <span class="results" *ngIf="!usertFound">USER NOT FOUND 😥</span>
+    </ng-template>
   </form>
 </header>
