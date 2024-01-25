@@ -1,0 +1,27 @@
+.repo {
+  border-radius: 0.5em;
+  padding: 1.3em;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  background-image: linear-gradient(to right, #111729, #1d1b48);
+
+  &__title {
+    font-size: 1.4rem;
+  }
+  &__subtitle {
+    font-size: 1rem;
+  }
+  &__infos {
+    display: flex;
+    column-gap: 0.7em;
+    &-info {
+      display: flex;
+      align-items: flex-end;
+      column-gap: 0.3em;
+    }
+    &-img {
+      width: 1.5em;
+    }
+  }
+}
